@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories version="1.0">
+<repo priority="50" status="unofficial">
+	<name>mlen</name>
+	<description>mlen's overlay</description>
+  <homepage>https://github.com/mlen/gentoo-overlay</homepage>
+	<owner>
+		<email>mlen@mlen.pl</email>
+		<name>mlen</name>
+	</owner>
+	<source type="git">git://github.com/mlen/gentoo-overlay.git</source>
+  <feed>https://github.com/mlen/gentoo-overlay/commits/master.atom</feed>
+</repo>
+</repositories>
