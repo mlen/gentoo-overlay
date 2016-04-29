@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools flag-o-matic git-r3 python-r1 toolchain-funcs
+inherit flag-o-matic git-r3 python-r1 toolchain-funcs
 
 DESCRIPTION="An efficient theorem prover"
 HOMEPAGE="https://github.com/Z3Prover/z3"
@@ -22,10 +22,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/gmp:0"
-# A new curl is needed because codeplex has a bug and early version of libcurl
-# will cause a failed git clone.
-DEPEND="${RDEPEND}
-	>=net-misc/curl-7.33"
+DEPEND="${RDEPEND}"
 
 pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
@@ -48,17 +45,11 @@ src_prepare() {
 		-i scripts/*mk* || die
 
 	append-ldflags -fopenmp
-
-	eautoreconf
 }
 
 src_configure() {
 	python_export_best
-	econf \
-		--host="" \
-		--with-python="${PYTHON}" \
-		SLIBFLAGS=" -Wl,-soname,lib${PN}.so.0.1 "
-	${EPYTHON} scripts/mk_make.py || die
+	${EPYTHON} scripts/mk_make.py --gmp --python --prefix="${EPREFIX}" || die
 }
 
 src_compile() {

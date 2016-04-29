@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools flag-o-matic python-r1 toolchain-funcs vcs-snapshot
+inherit flag-o-matic python-r1 toolchain-funcs vcs-snapshot
 
 DESCRIPTION="An efficient theorem prover"
 HOMEPAGE="https://github.com/Z3Prover/z3"
@@ -43,17 +43,11 @@ src_prepare() {
 		-i scripts/*mk* || die
 
 	append-ldflags -fopenmp
-
-	eautoreconf
 }
 
 src_configure() {
 	python_export_best
-	econf \
-		--host="" \
-		--with-python="${PYTHON}" \
-		SLIBFLAGS=" -Wl,-soname,lib${PN}.so.0.1 "
-	${EPYTHON} scripts/mk_make.py || die
+	${EPYTHON} scripts/mk_make.py --gmp --prefix="${EPREFIX}" || die
 }
 
 src_compile() {
