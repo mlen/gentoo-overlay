@@ -9,20 +9,19 @@ PYTHON_COMPAT=( python2_7 )
 inherit autotools flag-o-matic git-r3 python-r1 toolchain-funcs
 
 DESCRIPTION="An efficient theorem prover"
-HOMEPAGE="http://z3.codeplex.com/"
+HOMEPAGE="https://github.com/Z3Prover/z3"
 SRC_URI=""
-EGIT_REPO_URI="https://git01.codeplex.com/z3"
+EGIT_REPO_URI="https://github.com/Z3Prover/z3.git"
 EGIT_MIN_CLONE_TYPE=single
 
 SLOT="0"
 LICENSE="MIT"
 KEYWORDS=""
-IUSE="gmp"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	gmp? ( dev-libs/gmp:0 )"
+	dev-libs/gmp:0"
 # A new curl is needed because codeplex has a bug and early version of libcurl
 # will cause a failed git clone.
 DEPEND="${RDEPEND}
@@ -44,7 +43,7 @@ src_prepare() {
 		-e 's:-fomit-frame-pointer::' \
 		-e 's:-msse2::g' \
 		-e 's:-msse::g' \
-		-e "/LINK_EXTRA_FLAGS/s:@LDFLAGS@:-lrt $(usex gmp -lgmp ""):g" \
+		-e "/LINK_EXTRA_FLAGS/s:@LDFLAGS@:-lrt -lgmp:g" \
 		-e 's:t@\$:t\$:g' \
 		-i scripts/*mk* || die
 
@@ -58,7 +57,6 @@ src_configure() {
 	econf \
 		--host="" \
 		--with-python="${PYTHON}" \
-		$(use_with gmp) \
 		SLIBFLAGS=" -Wl,-soname,lib${PN}.so.0.1 "
 	${EPYTHON} scripts/mk_make.py || die
 }
