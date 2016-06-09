@@ -28,7 +28,3 @@ media-libs/glu
 media-libs/mesa"
 
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	cmake-utils_src_configure
-}
