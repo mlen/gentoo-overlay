@@ -14,7 +14,6 @@ HOMEPAGE="http://solvespace.com"
 LICENSE="GPL3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="sys-libs/zlib
 dev-libs/json-c
