@@ -24,6 +24,6 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/GarminPlugin-${PV}/src"
 
 src_install() {
-	insinto /usr/lib/nsbrowser/plugins
+	insinto "/usr/lib64/chromium-browser/"
 	doins npGarminPlugin.so
 }
