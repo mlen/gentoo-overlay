@@ -27,3 +27,8 @@ media-libs/glu
 media-libs/mesa"
 
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=("-DENABLE_TESTS=OFF")
+	cmake-utils_src_configure
+}
