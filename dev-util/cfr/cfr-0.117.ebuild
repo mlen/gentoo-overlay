@@ -29,5 +29,5 @@ src_install() {
 	insinto "$dir"
 
 	doins "${PN}.jar"
-	make_wrapper "${PN}" "java -jar ${dir}/${PN}.jar" "${dir}"
+	make_wrapper "${PN}" "java -jar ${dir}/${PN}.jar"
 }
