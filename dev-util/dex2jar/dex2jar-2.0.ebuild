@@ -28,7 +28,7 @@ src_prepare() {
 src_install() {
 	local dir="/opt/${P}"
 	dodir /opt/"${P}"
-	cp -R "${S}"/* "${D}/${dir}/"${P}"" || die "Install failed!"
+	cp -R "${S}"/* "${D}/${dir}" || die "Install failed!"
 
 	make_wrapper "dex2jar" "${dir}/d2j-dex2jar.sh"
 }
