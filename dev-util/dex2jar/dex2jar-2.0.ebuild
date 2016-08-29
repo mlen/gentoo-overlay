@@ -28,9 +28,11 @@ src_prepare() {
 
 src_install() {
 	local dir="/opt/${P}"
-	into "$dir"
 
-	dodir lib
+	insinto "${dir}/lib"
+	doins lib/*.jar
+	
+	insinto "$dir"
 	doins *.sh
 	make_wrapper "dex2jar" "${dir}/d2j-dex2jar.sh"
 }
