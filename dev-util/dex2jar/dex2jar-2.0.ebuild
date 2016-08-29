@@ -32,5 +32,6 @@ src_install() {
 	
 	insinto "$dir"
 	doins *.sh
+	chmod a+x "${dir}/*.sh"
 	make_wrapper "dex2jar" "bash ${dir}/d2j-dex2jar.sh"
 }
