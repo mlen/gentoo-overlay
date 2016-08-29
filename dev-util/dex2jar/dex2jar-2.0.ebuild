@@ -21,9 +21,7 @@ RDEPEND="virtual/jre
 
 src_prepare() {
 	default
-
 	rm *.bat
-	chmod a+x *.sh
 }
 
 src_install() {
@@ -34,5 +32,5 @@ src_install() {
 	
 	insinto "$dir"
 	doins *.sh
-	make_wrapper "dex2jar" "${dir}/d2j-dex2jar.sh"
+	make_wrapper "dex2jar" "bash ${dir}/d2j-dex2jar.sh"
 }
