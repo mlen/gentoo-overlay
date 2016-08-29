@@ -22,16 +22,13 @@ RDEPEND="virtual/jre
 src_prepare() {
 	default
 	rm *.bat
+	chmod a+x *.sh
 }
 
 src_install() {
 	local dir="/opt/${P}"
+	dodir /opt/"${P}"
+	cp -R "${S}"/* "${D}/${dir}/"${P}"" || die "Install failed!"
 
-	insinto "${dir}/lib"
-	doins lib/*.jar
-	
-	insinto "$dir"
-	doins *.sh
-	chmod a+x "${dir}/*.sh"
-	make_wrapper "dex2jar" "bash ${dir}/d2j-dex2jar.sh"
+	make_wrapper "dex2jar" "${dir}/d2j-dex2jar.sh"
 }
