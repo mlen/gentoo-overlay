@@ -8,6 +8,10 @@ inherit cmake-utils git-r3
 
 EGIT_REPO_URI="git://github.com/solvespace/${PN}.git https://github.com/solvespace/${PN}.git"
 EGIT_SUBMODULES=("extlib/libdxfrw")
+if [ "${PV}" != "9999" ]; then
+	EGIT_COMMIT="${PV}"
+fi
+
 DESCRIPTION="Parametric 2d/3d CAD"
 HOMEPAGE="http://solvespace.com"
 
