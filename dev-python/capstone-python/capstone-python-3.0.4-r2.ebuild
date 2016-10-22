@@ -21,6 +21,6 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 DEPEND=""
-RDEPEND="=dev-libs/${MY_P}"
+RDEPEND="=dev-libs/${MY_PN}-${PVR}"
 
 S="${WORKDIR}/${MY_P}/bindings/python"
