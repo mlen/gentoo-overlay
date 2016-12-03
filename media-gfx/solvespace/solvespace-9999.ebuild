@@ -28,8 +28,7 @@ media-libs/freetype
 media-libs/fontconfig
 media-libs/glew
 media-libs/glu
-media-libs/mesa
-x11-libs/cairo"
+media-libs/mesa"
 
 RDEPEND="${DEPEND}"
 
