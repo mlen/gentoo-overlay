@@ -48,7 +48,8 @@ src_prepare() {
 }
 
 src_configure() {
-	python_export_best
+	python_setup
+	python_export PYTHON_SITEDIR
 	${EPYTHON} scripts/mk_make.py --gmp --python --prefix="${EPREFIX}" || die
 }
 
