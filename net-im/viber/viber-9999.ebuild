@@ -50,4 +50,5 @@ RDEPEND="${DEPEND}
 
 src_install() {
     doins -r opt usr
+    fperms 755 /opt/viber/Viber
 }
