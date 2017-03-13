@@ -24,6 +24,6 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${P/_alpha/a}"
 
 src_install() {
-	dodoc -r ChangeLog README.md
+	dodoc -r ChangeLog README.md docs/README.md
 	python_foreach_impl python_doscript ${PN}
 }
