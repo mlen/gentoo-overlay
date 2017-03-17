@@ -4,7 +4,7 @@
 EAPI=6
 PYTHON_COMPAT=( python2_7 python3_4 python3_5 python3_6 pypy )
 
-inherit python-r1
+inherit python-r1 eutils
 
 LPV="${PV/_alpha/a}"
 DESCRIPTION="Google Calendar Command Line Interface"
@@ -22,6 +22,11 @@ DEPEND="dev-python/python-dateutil[${PYTHON_USEDEP}]
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${P/_alpha/a}"
+
+src_prepare() {
+	default
+	epatch "${FILESDIR}/${P}-fix-raw_input.patch"
+}
 
 src_install() {
 	dodoc -r ChangeLog README.md docs/README.md
