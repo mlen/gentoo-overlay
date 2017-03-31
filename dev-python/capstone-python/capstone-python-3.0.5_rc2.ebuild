@@ -23,4 +23,4 @@ IUSE=""
 DEPEND=""
 RDEPEND="=dev-libs/${MY_PN}-${PVR}"
 
-S="${WORKDIR}/${MY_P}/bindings/python"
+S="${WORKDIR}/${MY_P//_/-}/bindings/python"
