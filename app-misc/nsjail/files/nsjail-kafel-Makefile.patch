@@ -1,0 +1,11 @@
+--- a/kafel/Makefile	2017-05-02 20:26:10.254491830 +0200
++++ b/kafel/Makefile	2017-05-02 20:26:16.580449784 +0200
+@@ -19,7 +19,7 @@
+ 
+ OBJCOPY?=objcopy
+ 
+-CFLAGS+=-std=gnu11 -I./include -Wall -Wextra -Werror
++CFLAGS+=-std=gnu11 -I./include -Wall -Wextra
+ CFLAGS+=-fPIC -fvisibility=hidden
+ GENERATED_SRCS:=lexer.c parser.c
+ GENERATED:=lexer.h parser.h ${GENERATED_SRCS}
