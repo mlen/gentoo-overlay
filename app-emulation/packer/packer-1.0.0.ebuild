@@ -24,7 +24,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${P}/src/${EGO_PN}
+S="${WORKDIR}/${P}/src/${EGO_PN}"
 
 src_compile() {
 	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" go build -o "bin/packer" || die
