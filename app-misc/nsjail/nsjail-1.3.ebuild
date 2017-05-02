@@ -28,3 +28,8 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-Makefile.patch"
 	epatch "${FILESDIR}/${PN}-kafel-Makefile.patch"
 }
+
+src_install() {
+	dodoc README.md
+	dobin nsjail
+}
