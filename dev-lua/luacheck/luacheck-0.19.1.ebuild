@@ -11,7 +11,7 @@ SRC_URI="https://github.com/mpeterv/luacheck/archive/${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 COMMON_DEPEND=">=dev-lang/lua-5.1:="
@@ -22,7 +22,7 @@ RDEPEND="${COMMON_DEPEND}
 		 dev-lua/luafilesystem
 		 dev-lua/lanes"
 
-src_install() { 
+src_install() {
 	insinto "$($(tc-getPKG_CONFIG) --variable INSTALL_LMOD lua)"
 	doins -r src/luacheck
 	newbin bin/luacheck.lua luacheck

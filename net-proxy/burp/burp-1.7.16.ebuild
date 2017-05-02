@@ -1,12 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
 inherit eutils
 
-DESCRIPTION="Burp Suite is an integrated platform for performing security testing of web applications"
+DESCRIPTION="Integrated platform for performing security testing of web applications"
 HOMEPAGE="https://portswigger.net/burp/"
 SRC_URI="burpsuite_pro_v${PV}.jar"
 
@@ -23,7 +22,7 @@ RDEPEND="virtual/jre
 
 src_unpack() {
 	mkdir -p "${S}" || die
-	cp -L ${DISTDIR}/${A} ${S}/${PN}.jar || die
+	cp -L "${DISTDIR}/${A}" "${S}/${PN}.jar" || die
 }
 
 src_install() {
@@ -33,4 +32,3 @@ src_install() {
 	doins "${PN}.jar"
 	make_wrapper "${PN}" "java -jar ${dir}/${PN}.jar"
 }
-

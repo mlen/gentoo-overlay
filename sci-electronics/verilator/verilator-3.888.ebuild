@@ -1,10 +1,9 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-DESCRIPTION="Verilator is a fast Verilog HDL simulator that compiles synthesizable Verilog into C++ or SystemC"
+DESCRIPTION="Fast Verilog HDL simulator that compiles Verilog into C++ or SystemC"
 HOMEPAGE="http://www.veripool.org/wiki/verilator"
 SRC_URI="http://www.veripool.org/ftp/${P}.tgz"
 

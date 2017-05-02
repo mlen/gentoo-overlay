@@ -14,10 +14,10 @@ else
 	inherit golang-vcs-snapshot
 fi
 
-DESCRIPTION="Packer is a tool for creating identical machine images for multiple platforms from a single source configuration"
+DESCRIPTION="Tool for creating machine images"
 HOMEPAGE="https://packer.io/"
 
-LICENSE=""
+LICENSE="MPL-2.0"
 SLOT="0"
 IUSE=""
 

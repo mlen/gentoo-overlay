@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -21,10 +20,9 @@ HOMEPAGE="https://github.com/texane/stlink"
 LICENSE="BSD"
 SLOT="0"
 
+RDEPEND="virtual/libusb:*"
 DEPEND="virtual/pkgconfig
-virtual/libusb"
-
-RDEPEND="${DEPEND}"
+		${RDEPEND}"
 
 src_prepare() {
 	default

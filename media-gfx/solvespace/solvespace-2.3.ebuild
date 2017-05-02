@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -15,7 +14,7 @@ fi
 DESCRIPTION="Parametric 2d/3d CAD"
 HOMEPAGE="http://solvespace.com"
 
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -23,10 +22,10 @@ DEPEND="sys-libs/zlib
 dev-libs/json-c
 dev-cpp/gtkmm:2.4
 dev-cpp/pangomm
-media-libs/libpng
+media-libs/libpng:*
 media-libs/freetype
 media-libs/fontconfig
-media-libs/glew
+media-libs/glew:*
 media-libs/glu
 media-libs/mesa"
 
