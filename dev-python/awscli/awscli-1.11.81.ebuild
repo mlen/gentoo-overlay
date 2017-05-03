@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="dev-python/botocore[${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/botocore-1.5.45[${PYTHON_USEDEP}]
 		 dev-python/colorama[${PYTHON_USEDEP}]
 		 dev-python/docutils[${PYTHON_USEDEP}]
 		 <=dev-python/rsa-3.5.0[${PYTHON_USEDEP}]
