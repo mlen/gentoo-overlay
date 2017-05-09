@@ -5,12 +5,11 @@ EAPI=6
 
 PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
-inherit cmake-utils linux-info python-single-r1 python-utils-r1
+inherit cmake-utils linux-info python-single-r1 python-utils-r1 git-r3
 
 DESCRIPTION="Tools for BPF-based Linux IO analysis, networking, monitoring, and more"
 HOMEPAGE="https://iovisor.github.io/bcc/"
-EGIT_COMMIT="master"
-SRC_URI="https://github.com/iovisor/bcc/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/iovisor/${PN}.git git://github.com/iovisor/${PN}.git"
 RESTRICT="test"
 
 LICENSE="Apache-2.0"
@@ -24,7 +23,6 @@ RDEPEND=">=dev-libs/elfutils-0.166:=
 	>=sys-devel/llvm-3.7:=[llvm_targets_BPF(+)]
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}"
-S=${WORKDIR}/${PN}-${EGIT_COMMIT#v}
 
 pkg_pretend() {
 	local CONFIG_CHECK="~BPF ~BPF_SYSCALL ~NET_CLS_BPF ~NET_ACT_BPF
