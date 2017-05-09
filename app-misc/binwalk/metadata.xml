@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mlen@mlen.pl</email>
+		<name>Mateusz Lenik</name>
+	</maintainer>
+	<longdescription>A tool for identifying files embedded inside firmware images</longdescription>
+	<use>
+		<flag name="graph">Enable support for generating entropy graphs</flag>
+		<flag name="squashfs">Enable support for inspecting squashfs filesystems</flag>
+	</use>
+</pkgmetadata>
