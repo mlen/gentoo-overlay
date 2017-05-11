@@ -6,12 +6,4 @@
 		<name>Mateusz Lenik</name>
 	</maintainer>
 	<longdescription>Unicorn is a lightweight multi-platform, multi-architecture CPU emulator framework.</longdescription>
-	<use>
-		<flag name="unicorn_targets_m68k">M86k CPU target</flag>
-		<flag name="unicorn_targets_arm">ARM CPU target</flag>
-		<flag name="unicorn_targets_aarch64">AArch64 CPU target (arm64 in Gentoo)</flag>
-		<flag name="unicorn_targets_mips">MIPS CPU target</flag>
-		<flag name="unicorn_targets_sparc">Sparc CPU target</flag>
-		<flag name="unicorn_targets_x86">x86 CPU target</flag>
-	</use>
 </pkgmetadata>
