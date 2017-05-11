@@ -17,7 +17,8 @@ KEYWORDS="~amd64"
 
 IUSE_UNICORN_TARGETS="x86 m68k arm aarch64 mips sparc"
 use_unicorn_targets=$(printf ' unicorn_targets_%s' ${IUSE_UNICORN_TARGETS})
-IUSE+=" ${use_unicorn_targets}"
+IUSE+="$(printf ' +%s' ${use_unicorn_targets})"
+REQUIRED_USE="|| ( ${use_unicorn_targets} )"
 
 DEPEND="dev-lang/python:2.7"
 RDEPEND="${DEPEND}"
