@@ -1,0 +1,18 @@
+--- setup.py.orig	2017-05-11 20:49:40.995607328 +0200
++++ setup.py	2017-05-11 20:50:08.371516089 +0200
+@@ -6,7 +6,7 @@
+     url='https://github.com/trailofbits/manticore',
+     author='Trail of Bits',
+     version='0.1.1',
+-    packages=find_packages(),
++    packages=find_packages(exclude=('tests',)),
+     install_requires=[
+         'capstone',
+         'pyelftools',
+@@ -26,4 +26,4 @@
+             'manticore = manticore.__main__:main'
+         ]
+     }
+-)
+\ No newline at end of file
++)
