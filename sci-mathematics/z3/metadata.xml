@@ -6,4 +6,7 @@
 		<name>Mateusz Lenik</name>
 	</maintainer>
 	<longdescription>An efficient theorem prover</longdescription>
+	<use>
+		<flag name="isabelle">Add integration support for the Isabelle/HOL theorem prover.</flag>
+	</use>
 </pkgmetadata>
