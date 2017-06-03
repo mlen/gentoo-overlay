@@ -18,7 +18,7 @@ IUSE=""
 
 RDEPEND="
 	dev-python/botocore[${PYTHON_USEDEP}]
-	<=dev-python/colorama-0.3.7[${PYTHON_USEDEP}]
+	<=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 	<=dev-python/rsa-3.5.0[${PYTHON_USEDEP}]
 	>=dev-python/s3transfer-0.1.5[${PYTHON_USEDEP}]
