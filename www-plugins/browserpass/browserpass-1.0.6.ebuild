@@ -10,7 +10,7 @@ inherit golang-vcs-snapshot
 
 DESCRIPTION="Chrome & Firefox browser extension for pass"
 HOMEPAGE="https://github.com/dannyvankooten/browserpass"
-SRC_URI="https://${REPO}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://${EGO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
