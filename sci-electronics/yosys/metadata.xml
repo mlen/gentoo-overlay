@@ -6,7 +6,4 @@
 		<name>Mateusz Lenik</name>
 	</maintainer>
 	<longdescription>A framework for Verilog 2005 RTL synthesis</longdescription>
-	<use> 
-		<flag name="abc">Compile ABC library for sequential synthesis and verification</flag>
-	</use>
 </pkgmetadata>

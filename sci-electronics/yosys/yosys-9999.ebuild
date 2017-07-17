@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/cliffordwolf/yosys.git"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+tcl +abc"
+IUSE="+tcl"
 
 RDEPEND="sys-libs/readline:=
 		 tcl? ( dev-lang/tcl:= )"
@@ -20,15 +20,14 @@ DEPEND="${RDEPEND}
 		virtual/pkgconfig
 		sys-devel/bison
 		sys-devel/flex
-		sys-apps/gawk
-		abc? ( dev-vcs/mercurial )"
+		sys-apps/gawk"
 
 src_configure() {
 	export PREFIX=/usr
 
 	emake config-gcc
+	echo "ENABLE_ABC := 0" >> "${S}/Makefile.conf"
 	use tcl || echo "ENABLE_TCL := 0" >> "${S}/Makefile.conf"
-	use abc || echo "ENABLE_ABC := 0" >> "${S}/Makefile.conf"
 }
 
 src_install() {
