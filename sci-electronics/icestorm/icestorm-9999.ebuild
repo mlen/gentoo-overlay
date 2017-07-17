@@ -24,3 +24,7 @@ src_prepare() {
 	default
 	epatch "${FILESDIR}/prefix.patch"
 }
+
+src_install() {
+	emake DESTDIR="${D}" install
+}
