@@ -3,7 +3,8 @@
 
 EAPI=6
 
-inherit git-r3
+PYTHON_COMPAT=( python3_4 python3_5 )
+inherit git-r3 python-any-r1
 
 DESCRIPTION="A framework for Verilog 2005 RTL synthesis"
 HOMEPAGE="http://www.clifford.at/yosys/"
@@ -18,6 +19,7 @@ RDEPEND="sys-libs/readline:=
 		 tcl? ( dev-lang/tcl:= )
 		 graphviz? ( media-gfx/xdot )"
 DEPEND="${RDEPEND}
+		${PYTHON_DEPS}
 		virtual/pkgconfig
 		sys-devel/bison
 		sys-devel/flex
