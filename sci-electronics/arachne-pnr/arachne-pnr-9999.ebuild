@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit eutils git-r3
+inherit git-r3
 
 DESCRIPTION="Place and route tool for FPGAs"
 HOMEPAGE="https://github.com/cseed/arachne-pnr"
@@ -14,14 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="sci-electronics/icestorm"
+DEPEND="sci-electronics/icestorm
+		dev-vcs/git"
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	emake PREFIX=/usr
+	export PREFIX=/usr
+	default
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX=/usr install
+	export PREFIX=/usr
+	default
 }
-
