@@ -12,10 +12,11 @@ EGIT_REPO_URI="https://github.com/cliffordwolf/yosys.git"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+tcl"
+IUSE="+graphviz tcl"
 
 RDEPEND="sys-libs/readline:=
-		 tcl? ( dev-lang/tcl:= )"
+		 tcl? ( dev-lang/tcl:= )
+		 graphviz? ( media-gfx/xdot )"
 DEPEND="${RDEPEND}
 		virtual/pkgconfig
 		sys-devel/bison
