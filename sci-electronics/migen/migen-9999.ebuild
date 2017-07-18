@@ -4,7 +4,7 @@
 EAPI=6
 
 PYTHON_COMPAT=(python3_4 python3_5)
-inherit distutils-r1
+inherit eutils distutils-r1
 
 if [ "$PV" = "9999" ]; then
 	inherit git-r3
@@ -31,4 +31,3 @@ src_prepare() {
 	epatch "${FILESDIR}/python34.patch"
 	default
 }
-
