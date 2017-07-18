@@ -26,3 +26,9 @@ RDEPEND="${DEPEND}
 		 dev-python/colorama[${PYTHON_USEDEP}]
 		 dev-python/sphinx[${PYTHON_USEDEP}]
 		 dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]"
+
+src_prepare() {
+	epatch "${FILESDIR}/python34.patch"
+	default
+}
+

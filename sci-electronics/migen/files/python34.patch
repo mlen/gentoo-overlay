@@ -1,0 +1,14 @@
+diff --git a/migen/util/misc.py b/migen/util/misc.py
+index 0eadc2b..dd51a6d 100644
+--- a/migen/util/misc.py
++++ b/migen/util/misc.py
+@@ -1,4 +1,8 @@
+-from math import gcd
++try:
++    from math import gcd
++except ImportError:
++    from fractions import gcd
++
+ import collections
+ 
+ 
