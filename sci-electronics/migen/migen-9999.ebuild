@@ -4,7 +4,7 @@
 EAPI=6
 
 PYTHON_COMPAT=(python3_4 python3_5)
-inherit eutils distutils-r1
+inherit distutils-r1
 
 if [ "$PV" = "9999" ]; then
 	inherit git-r3
@@ -21,13 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
+PATCHES=( "${FILESDIR}/python34.patch" )
+
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${DEPEND}
 		 dev-python/colorama[${PYTHON_USEDEP}]
 		 dev-python/sphinx[${PYTHON_USEDEP}]
 		 dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]"
-
-src_prepare() {
-	epatch "${FILESDIR}/python34.patch"
-	default
-}
