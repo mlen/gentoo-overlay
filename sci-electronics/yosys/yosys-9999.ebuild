@@ -4,16 +4,17 @@
 EAPI=6
 
 PYTHON_COMPAT=( python3_4 python3_5 )
-inherit git-r3 python-any-r1
+inherit git-r3 mercurial python-any-r1
 
 DESCRIPTION="A framework for Verilog 2005 RTL synthesis"
 HOMEPAGE="http://www.clifford.at/yosys/"
 EGIT_REPO_URI="https://github.com/cliffordwolf/yosys.git"
+EHG_REPO_URI="https://bitbucket.org/alanmi/abc"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+graphviz tcl"
+IUSE="+graphviz +abc tcl"
 
 RDEPEND="sys-libs/readline:=
 		 tcl? ( dev-lang/tcl:= )
@@ -25,12 +26,27 @@ DEPEND="${RDEPEND}
 		sys-devel/flex
 		sys-apps/gawk"
 
+src_unpack() {
+	git-r3_src_unpack
+
+	if use abc; then
+		EHG_REVISION="$(awk '/^ABCREV/ { print $3 }' "${S}/Makefile")" \
+			EHG_CHECKOUT_DIR="${S}/abc" \
+			mercurial_fetch
+	fi
+}
+
 src_configure() {
 	export PREFIX=/usr
 
 	emake config-gcc
-	echo "ENABLE_ABC := 0" >> "${S}/Makefile.conf"
 	use tcl || echo "ENABLE_TCL := 0" >> "${S}/Makefile.conf"
+
+	if use abc; then
+		echo "ABCREV := default" >> "${S}/Makefile.conf"
+	else
+		echo "ENABLE_ABC := 0" >> "${S}/Makefile.conf"
+	fi
 }
 
 src_install() {

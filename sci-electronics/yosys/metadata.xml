@@ -6,4 +6,7 @@
 		<name>Mateusz Lenik</name>
 	</maintainer>
 	<longdescription>A framework for Verilog 2005 RTL synthesis</longdescription>
+	<use>
+		<flag name="abc">Compile with sci-electronics/abc support</flag>
+	</use>
 </pkgmetadata>
