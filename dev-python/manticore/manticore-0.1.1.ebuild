@@ -17,7 +17,7 @@ IUSE=""
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		dev-python/unicorn-python
-		dev-python/capstone-python"
+		dev-libs/capstone[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
