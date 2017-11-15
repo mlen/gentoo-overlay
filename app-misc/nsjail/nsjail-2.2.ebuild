@@ -3,12 +3,12 @@
 
 EAPI=6
 
-inherit git-r3 epatch
+inherit git-r3
 
 DESCRIPTION="Light-weight process isolation tool using Linux namespaces and seccomp-bpf"
 HOMEPAGE="https://github.com/google/nsjail"
 
-EGIT_REPO_URI="git://github.com/google/${PN}.git https://github.com/google/${PN}.git"
+EGIT_REPO_URI="https://github.com/google/${PN}.git"
 EGIT_SUBMODULES=("kafel")
 
 if [[ "${PV}" != "9999" ]]; then
