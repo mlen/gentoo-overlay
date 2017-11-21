@@ -1,0 +1,13 @@
+diff --git a/iceprog/Makefile b/iceprog/Makefile
+index 8739ba6..03b4b8b 100644
+--- a/iceprog/Makefile
++++ b/iceprog/Makefile
+@@ -4,7 +4,7 @@ ifneq ($(shell uname -s),Darwin)
+   LDLIBS = -L/usr/local/lib -lm
+ else
+   LIBFTDI_NAME = $(shell $(PKG_CONFIG) --exists libftdi1 && echo ftdi1 || echo ftdi)
+-  LDLIBS = -L/usr/local/lib -l$(LIBFTDI_NAME) -lm
++  LDLIBS = -l$(LIBFTDI_NAME) -lm
+ endif
+
+ ifeq ($(STATIC),1)

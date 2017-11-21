@@ -22,9 +22,10 @@ DEPEND="virtual/pkgconfig
 
 src_prepare() {
 	default
-	epatch "${FILESDIR}/prefix.patch"
+	epatch "${FILESDIR}/chipdb-location.patch"
+	epatch "${FILESDIR}/iceprog-libdir.patch"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	emake PREFIX=/usr DESTDIR="${D}" install
 }
