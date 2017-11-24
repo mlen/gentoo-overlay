@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/${P}/src/${EGO_PN}"
 
 src_compile() {
-	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" go build -o "bin/dep" || die
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" go build -o bin/dep ./cmd/dep || die
 }
 
 src_install() {
