@@ -9,7 +9,7 @@ inherit cmake-utils linux-info python-single-r1 python-utils-r1 git-r3
 
 DESCRIPTION="Tools for BPF-based Linux IO analysis, networking, monitoring, and more"
 HOMEPAGE="https://iovisor.github.io/bcc/"
-EGIT_REPO_URI="https://github.com/iovisor/${PN}.git git://github.com/iovisor/${PN}.git"
+EGIT_REPO_URI="https://github.com/iovisor/${PN}.git"
 RESTRICT="test"
 
 LICENSE="Apache-2.0"
