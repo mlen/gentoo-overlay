@@ -20,7 +20,7 @@ RDEPEND="virtual/jre
 
 src_unpack() {
 	mkdir -p "${S}" || die
-	cp -L "${DISTDIR}/${A} ${S}/${PN}.jar" || die
+	cp -L "${DISTDIR}/${A}" "${S}/${PN}.jar" || die
 }
 
 src_install() {
