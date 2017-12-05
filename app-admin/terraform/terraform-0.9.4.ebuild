@@ -4,15 +4,17 @@
 EAPI=6
 EGO_PN="github.com/hashicorp/terraform"
 
+EGO_VENDOR=(
+	"github.com/mitchellh/gox v0.4.0"
+	"github.com/mitchellh/iochan 87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+)
+
+inherit golang-build golang-vcs-snapshot
+
 KEYWORDS="~amd64"
 
-if [[ ${PV} == *9999 ]]; then
-	inherit golang-vcs
-else
-	EGIT_COMMIT="v${PV/_/-}"
-	SRC_URI="https://${EGO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	inherit golang-vcs-snapshot
-fi
+SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		 ${EGO_VENDOR_URI}"
 
 DESCRIPTION="Tool for building, changing, and combining infrastructure"
 HOMEPAGE="https://terraform.io/"
@@ -27,9 +29,12 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${P}/src/${EGO_PN}"
 
 src_compile() {
-	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" \
-		PATH="$PATH:${WORKDIR}/${P}/bin:$(get_golibdir_gopath)/bin:/usr/lib/go/bin" \
-		XC_OS="linux" XC_ARCH="amd64" make bin || die
+	export GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)"
+
+	(cd ./vendor/github.com/mitchellh/gox && go build -o "${WORKDIR}/${P}/bin/gox") || die "gox build failure"
+
+	PATH="${PATH}:${WORKDIR}/${P}/bin:$(get_golibdir_gopath)/bin:/usr/lib/go/bin" \
+		XC_OS="linux" XC_ARCH="amd64" make bin || die "build failed"
 }
 
 src_install() {
