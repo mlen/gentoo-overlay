@@ -25,5 +25,5 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	emake DESTDIR="${D}" LIBDIRARCH=lib64 install
 }
