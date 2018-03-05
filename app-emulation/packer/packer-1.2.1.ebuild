@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-EGO_PN="github.com/mitchellh/packer"
+EGO_PN="github.com/hashicorp/packer"
 
 KEYWORDS="~amd64"
 
@@ -19,10 +19,11 @@ HOMEPAGE="https://packer.io/"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-IUSE=""
+IUSE="zsh-completion"
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+		 zsh-completion? ( app-shells/zsh )"
 
 S="${WORKDIR}/${P}/src/${EGO_PN}"
 
@@ -33,4 +34,9 @@ src_compile() {
 src_install() {
 	dodoc README.md CHANGELOG.md
 	dobin bin/packer
+
+	if use zsh-completion; then
+		insinto /usr/share/zsh/site-functions
+		doins contrib/zsh-completion/_*
+	fi
 }
