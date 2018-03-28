@@ -111,12 +111,12 @@ src_install() {
 		LINK_FLAGS="${LDFLAGS}" \
 		install DESTDIR="${D}"
 
-	dosym "/usr/$(get_libdir)/lib${PN}.so" \
+	dosym "${EPREFIX}/usr/$(get_libdir)/lib${PN}.so" \
 		  "/usr/$(get_libdir)/lib${PN}.so.${SO1}" \
-		  || die "Could not create /usr/$(get_libdir)/lib${PN}.so.${SO1} symlink"
-	dosym "/usr/$(get_libdir)/lib${PN}.so" \
+		  || die "Could not create lib${PN}.so.${SO1} symlink"
+	dosym "${EPREFIX}/usr/$(get_libdir)/lib${PN}.so" \
 		  "/usr/$(get_libdir)/lib${PN}.so.${SOVER}" \
-		  || die "Could not create libz3.so soname symlink"
+		  || die "Could not create lib${PN}.so soname symlink"
 
 	if use examples; then
 		insinto /usr/share/${PN}
@@ -127,7 +127,7 @@ src_install() {
 		python_moduleinto "${PN}"
 		instpybind() {
 			python_domodule src/api/python/z3/*.py
-			dosym "/usr/$(get_libdir)/lib${PN}.so" \
+			dosym "${EPREFIX}/usr/$(get_libdir)/lib${PN}.so" \
 				  "$(python_get_sitedir)/${PN}/lib${PN}.so" \
 				|| die "Could not create $(python_get_sitedir)/lib${PN}.so symlink for python module"
 		}
