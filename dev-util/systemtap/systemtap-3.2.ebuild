@@ -5,7 +5,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit linux-info autotools eutils python-single-r1
+inherit linux-info autotools eutils python-single-r1 user
 
 DESCRIPTION="A linux trace/probe tool"
 HOMEPAGE="https://www.sourceware.org/systemtap/"
@@ -35,9 +35,14 @@ DOCS="AUTHORS HACKING NEWS README"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.1-ia64.patch
+	"${FILESDIR}"/${PN}-3.2-timer-compat.patch
 )
 
 pkg_setup() {
+	enewgroup stapusr 156
+	enewgroup stapsys 157
+	enewgroup stapdev 158
+
 	linux-info_pkg_setup
 	python-single-r1_pkg_setup
 }
