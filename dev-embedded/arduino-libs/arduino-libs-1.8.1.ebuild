@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -25,9 +25,9 @@ src_install() {
 	doins -r hardware libraries
 	fowners -R root:uucp "/usr/share/arduino/hardware"
 
-	dosym /usr/bin/avrdude "/usr/share/arduino/hardware/tools/avrdude"
-	dosym /etc/avrdude.conf "/usr/share/arduino/hardware/tools/avrdude.conf"
+	dosym "${EPREFIX}/usr/bin/avrdude" "/usr/share/arduino/hardware/tools/avrdude"
+	dosym "${EPREFIX}/etc/avrdude.conf" "/usr/share/arduino/hardware/tools/avrdude.conf"
 
 	mkdir -p "${D}/usr/share/arduino/hardware/tools/avr/etc/"
-	dosym /etc/avrdude.conf "/usr/share/arduino/hardware/tools/avr/etc/avrdude.conf"
+	dosym "${EPREFIX}/etc/avrdude.conf" "/usr/share/arduino/hardware/tools/avr/etc/avrdude.conf"
 }
