@@ -36,6 +36,7 @@ DOCS="AUTHORS HACKING NEWS README"
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.1-ia64.patch
 	"${FILESDIR}"/${PN}-3.2-timer-compat.patch
+	"${FILESDIR}"/${PN}-3.2-libvirt-build-fix.patch
 )
 
 pkg_setup() {

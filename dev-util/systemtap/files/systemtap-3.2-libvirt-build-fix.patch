@@ -1,0 +1,19 @@
+diff --git a/dtrace.in b/dtrace.in
+index a6d407eab..9c1d03db5 100644
+--- a/dtrace.in
++++ b/dtrace.in
+@@ -410,12 +410,8 @@ def main():
+         else:
+             print("header: " + fname)
+ 
+-        try: # for reproducible-builds purposes, prefer a fixed path name pattern
+-            fname = filename + ".dtrace-temp.c"
+-            fdesc = open(fname, mode='w')
+-        except: # but that doesn't work for  -o /dev/null - see rhbz1504009
+-            (ignore,fname) = mkstemp(suffix=".c")
+-            fdesc = open(fname, mode='w')
++        (ignore,fname) = mkstemp(suffix=".c")
++        fdesc = open(fname, mode='w')
+         providers.semaphore_write(fdesc)
+         fdesc.close()
+         cc1 = os.environ.get("CC", "gcc")
