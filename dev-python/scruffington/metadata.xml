@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mlen@mlen.pl</email>
+		<name>Mateusz Lenik</name>
+	</maintainer>
+	<longdescription>A framework for taking care of a bunch of boilerplate in Python apps</longdescription>
+</pkgmetadata>
