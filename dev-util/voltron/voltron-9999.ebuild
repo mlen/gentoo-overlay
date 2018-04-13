@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/snare/${PN}.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-python/blessed[${PYTHON_USEDEP}]
