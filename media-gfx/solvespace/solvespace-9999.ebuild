@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -34,4 +34,14 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local mycmakeargs=("-DENABLE_TESTS=OFF")
 	cmake-utils_src_configure
+}
+
+pkg_postinst() {
+	default
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	default
+	gnome2_icon_cache_update
 }
