@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -15,9 +15,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
+RESTRICT="mirror"
+
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-		dev-python/unicorn-python
-		dev-libs/capstone[${PYTHON_USEDEP}]"
+		dev-python/unicorn-python[${PYTHON_USEDEP}]
+		dev-python/pyelftools[${PYTHON_USEDEP}]
+		dev-python/ply[${PYTHON_USEDEP}]
+		dev-python/pysha3[${PYTHON_USEDEP}]
+		>=dev-libs/capstone-3.0.5_rc2[${PYTHON_USEDEP}]
+		sci-mathematics/z3[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
 
 src_prepare() {

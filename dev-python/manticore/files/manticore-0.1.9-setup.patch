@@ -1,0 +1,11 @@
+--- setup.py	2018-05-04 22:03:35.000000000 +0200
++++ setup.py	2018-05-08 08:30:11.570387036 +0200
+@@ -16,7 +16,7 @@
+     url='https://github.com/trailofbits/manticore',
+     author='Trail of Bits',
+     version='0.1.9',
+-    packages=find_packages(),
++    packages=find_packages(exclude=['*.tests', '*.tests.*', 'tests.*', 'tests']),
+     install_requires=[
+         'capstone>=3.0.5rc2',
+         'pyelftools',
