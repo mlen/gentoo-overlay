@@ -37,11 +37,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	default
 	gnome2_icon_cache_update
 }
 
 pkg_postrm() {
-	default
 	gnome2_icon_cache_update
 }
