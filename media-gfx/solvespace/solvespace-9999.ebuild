@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils git-r3
+inherit cmake-utils git-r3 gnome2-utils
 
 EGIT_REPO_URI="https://github.com/solvespace/${PN}.git"
 EGIT_SUBMODULES=("extlib/libdxfrw")
