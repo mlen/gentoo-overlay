@@ -3,11 +3,11 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_{4,5,6}} pypy{,3} )
+PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
 DESCRIPTION="Classes with architecture-specific information useful to other projects"
-HOMEPAGE="https://pypi.python.org/pypi/pyvex https://github.com/angr/pyvex"
+HOMEPAGE="https://pypi.python.org/pypi/archinfo https://github.com/angr/archinfo"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"
