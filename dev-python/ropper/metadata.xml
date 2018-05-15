@@ -7,7 +7,6 @@
 	</maintainer>
 	<longdescription>Find gadgets to build rop chains for different architectures</longdescription>
 	<use>
-		<flag name="semantic">Depend on PyVEX and Z3 to support semantic search</flag>
 		<flag name="keystone">Depend on keystone-engine to assemble code</flag>
 	</use>
 </pkgmetadata>
