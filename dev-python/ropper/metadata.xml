@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mlen@mlen.pl</email>
+		<name>Mateusz Lenik</name>
+	</maintainer>
+	<longdescription>Find gadgets to build rop chains for different architectures</longdescription>
+	<use>
+		<flag name="semantic">Depend on PyVEX and Z3 to support semantic search</flag>
+		<flag name="keystone">Depend on keystone-engine to assemble code</flag>
+	</use>
+</pkgmetadata>
