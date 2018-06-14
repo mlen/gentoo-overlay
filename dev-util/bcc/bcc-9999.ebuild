@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}"
 
 pkg_pretend() {
 	local CONFIG_CHECK="~BPF ~BPF_SYSCALL ~NET_CLS_BPF ~NET_ACT_BPF
-		~BPF_JIT ~BPF_EVENTS"
+		~BPF_JIT ~BPF_EVENTS ~DEBUG_INFO ~FUNCTION_TRACER ~KALLSYMS_ALL"
 
 	check_extra_config
 }
@@ -38,6 +38,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DREVISION=${PV%%_*}
+		-DPYTHON_CMD="${EPYTHON}"
 	)
 
 	cmake-utils_src_configure
