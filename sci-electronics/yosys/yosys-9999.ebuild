@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -9,7 +9,7 @@ inherit git-r3 mercurial python-any-r1
 DESCRIPTION="A framework for Verilog 2005 RTL synthesis"
 HOMEPAGE="http://www.clifford.at/yosys/"
 EGIT_REPO_URI="https://github.com/cliffordwolf/yosys.git"
-EHG_REPO_URI="https://bitbucket.org/alanmi/abc"
+ABC_REPO_URI="https://github.com/berkeley-abc/abc.git"
 
 LICENSE="ISC"
 SLOT="0"
@@ -30,9 +30,9 @@ src_unpack() {
 	git-r3_src_unpack
 
 	if use abc; then
-		EHG_REVISION="$(awk '/^ABCREV/ { print $3 }' "${S}/Makefile")" \
-			EHG_CHECKOUT_DIR="${S}/abc" \
-			mercurial_fetch
+		ABC_COMMIT="$(awk '/^ABCREV/ { print $3 }' "${S}/Makefile")"
+		git-r3_fetch "$ABC_REPO_URI" "$ABC_COMMIT" "$ABC_COMMIT"
+		git-r3_checkout "$ABC_REPO_URI" "${S}/abc" "$ABC_COMMIT"
 	fi
 }
 
@@ -43,6 +43,7 @@ src_configure() {
 	use tcl || echo "ENABLE_TCL := 0" >> "${S}/Makefile.conf"
 
 	if use abc; then
+		echo "ABCPULL := 0" >> "${S}/Makefile.conf"
 		echo "ABCREV := default" >> "${S}/Makefile.conf"
 	else
 		echo "ENABLE_ABC := 0" >> "${S}/Makefile.conf"
