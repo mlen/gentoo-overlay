@@ -19,6 +19,6 @@ IUSE=""
 RESTRICT="mirror"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-		dev-python/typing[${PYTHON_USEDEP}]"
+		virtual/python-typing[${PYTHON_USEDEP}]"
 
 RDEPEND="${DEPEND}"
