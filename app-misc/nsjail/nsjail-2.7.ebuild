@@ -23,7 +23,10 @@ IUSE=""
 DEPEND="dev-libs/protobuf"
 RDEPEND="${DEPEND}"
 
+DOCS="README.md LICENSE configs"
+
 src_install() {
-	dodoc README.md
 	dobin nsjail
+	doman nsjail.1
+	einstalldocs
 }
