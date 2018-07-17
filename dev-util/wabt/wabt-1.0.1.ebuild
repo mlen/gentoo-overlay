@@ -3,7 +3,9 @@
 
 EAPI=6
 
-inherit cmake-utils
+PYTHON_COMPAT=( python{2_7,3_{4,5,6,7}} )
+
+inherit cmake-utils python-any-r1
 
 if [ "${PV}" != 9999 ]; then
 	SRC_URI="https://github.com/WebAssembly/wabt/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -21,7 +23,8 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RESTRICT="mirror"
-DEPEND=""
+DEPEND="dev-util/re2c
+		${PYTHON_DEPS}"
 RDEPEND="${DEPEND}"
 
 src_configure() {
